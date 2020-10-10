@@ -5,7 +5,7 @@ import { firebase } from '../../firebase/config'
 
 const Hut = () => {
     return(
-        <View>
+        <View style={styles.container}>
             <Text>yo</Text>
         </View>
     )

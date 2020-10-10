@@ -4,8 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Hut from './Hut/Hut';
-import Timeline from './Timeline/Timeline';
 import Settings from './Settings/Settings';
+import Time from './Timeline/Timeline';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -29,7 +29,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Timeline"
-        component={Timeline}
+        component={Time}
         options={{
           tabBarLabel: 'Timeline',
           tabBarIcon: ({ color }) => (

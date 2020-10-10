@@ -58,5 +58,10 @@ export default StyleSheet.create({
         color:'white',
         fontWeight:'bold',
         textAlign:'center'
-    }
+    },
+    thumbnail: {
+        width: 100,
+        height: 100,
+        resizeMode: "cover"
+      }
 })

@@ -3,41 +3,55 @@ import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View, Image } fr
 import styles from './styles';
 import { firebase } from '../../firebase/config'
 import upload from "../../pics/upload.png";
-//import ImagePicker from 'react-native-image-picker';
+import plus from "../../pics/plus.png"
+import * as ImagePicker from 'expo-image-picker';
 
 export default function HomeScreen(props) {
 
     const [title, setTitle] = useState("");
     const [des, setDes] = useState("");
+    const [selectedImage, setSelectedImage] = useState(null);
+    const id = firebase.auth().currentUser.uid;
 
-    // const [image, setImage] = useState(null);
+    const openImagePickerAsync = async () => {
+        let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
+    
+        if (permissionResult.granted === false) {
+          alert("Permission to access gallery is required!");
+          return;
+        }
+    
+        let pickerResult = await ImagePicker.launchImageLibraryAsync();
+        //console.log(pickerResult);
+        if (pickerResult.cancelled === true) {
+            return;
+          }
+      
+          setSelectedImage({ localUri: pickerResult.uri });
+      }
 
-    // const selectImage = () => {
-    //     const options = {
-    //         maxWidth: 2000,
-    //         maxHeight: 2000,
-    //         storageOptions: {
-    //             skipBackup: true,
-    //             path: 'images'
-    //         }
-    //     };
-    //     ImagePicker.showImagePicker(options, response => {
-    //         if (response.didCancel) {
-    //             console.log('User cancelled image picker');
-    //         } else if (response.error) {
-    //             console.log('ImagePicker Error: ', response.error);
-    //         } else if (response.customButton) {
-    //             console.log('User tapped custom button: ', response.customButton);
-    //         } else {
-    //             const source = { uri: response.uri };
-    //             console.log(source);
-    //             setImage(source);
-    //         }
-    //     });
-    // }
+    const uploadIt = () => {
+        firebase.firestore().collection(id).add({
+            title,
+            des,
+            image:selectedImage
+        })
+         .then(() => {
+             setSelectedImage(null);
+             setTitle("");
+             setDes("");
+         })
+    }
 
     const handleNav = () => {
+        // store on firestore
+        uploadIt();      
+        // navigate , we are done with todays work   
         props.navigation.navigate("Hut");
+    }
+    const handlePlus = () => {
+        // store on firestore
+        uploadIt();         
     }
 
     return (
@@ -66,9 +80,24 @@ export default function HomeScreen(props) {
                 autoCapitalize="none"
             />
 
-            <TouchableOpacity style={styles.img} >
+            <TouchableOpacity style={styles.img} onPress={openImagePickerAsync} >
                 <Image source={upload} style={styles.imageUpIcon} />
             </TouchableOpacity>
+            {
+                selectedImage!==null?<Image
+                source={{ uri: selectedImage.localUri }}
+                style={styles.thumbnail}
+              /> : <></>
+            }
+            
+            {
+                title===""?
+                <></>:
+                <TouchableOpacity onPress={handlePlus} >
+                    <Image source={plus} style={styles.thumbnail} />
+                </TouchableOpacity>
+            }
+            
 
             <TouchableOpacity style={styles.btn} onPress={handleNav}>
                 <Text style={styles.bText}>Finish</Text>

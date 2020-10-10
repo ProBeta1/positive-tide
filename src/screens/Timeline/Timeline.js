@@ -5,7 +5,7 @@ import styles from './styles';
 import { firebase } from '../../firebase/config'
 
 
-const TimeLine = () => {
+const Time = () => {
     const data = [
         { time: '09:00', title: 'Event 1', description: 'Event 1 Description' },
         { time: '10:45', title: 'Event 2', description: 'Event 2 Description' },
@@ -14,19 +14,19 @@ const TimeLine = () => {
         { time: '16:30', title: 'Event 5', description: 'Event 5 Description' }
     ]
     return (
-        <View styles={styles.container}>
+        <View style={styles.container}>
+            <Text style={styles.txt}>ydkjfhsjkdfho</Text>
             <Text>yo</Text>
             <Text>yo</Text>
             <Text>yo</Text>
             <Text>yo</Text>
-            <Text>yo</Text>
-            <Timeline
+            {/* <Timeline
                 //..other props
                 data={data}
                 innerCircle={'icon'}
-            />
+            /> */}
         </View>
     )
 }
 
-export default TimeLine;
+export default Time;
