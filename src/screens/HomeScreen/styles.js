@@ -46,5 +46,17 @@ export default StyleSheet.create({
         width: 100,
         height: 100,
         resizeMode: 'cover'
+    },
+    btn:{
+        backgroundColor:'purple',
+        padding:10,
+        borderRadius:10,
+        width:'50%',
+        marginTop:15
+    },
+    bText:{
+        color:'white',
+        fontWeight:'bold',
+        textAlign:'center'
     }
 })

@@ -3,14 +3,41 @@ import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View, Image } fr
 import styles from './styles';
 import { firebase } from '../../firebase/config'
 import upload from "../../pics/upload.png";
+//import ImagePicker from 'react-native-image-picker';
 
 export default function HomeScreen(props) {
 
     const [title, setTitle] = useState("");
     const [des, setDes] = useState("");
 
-    const uploadImage = () => {
+    // const [image, setImage] = useState(null);
 
+    // const selectImage = () => {
+    //     const options = {
+    //         maxWidth: 2000,
+    //         maxHeight: 2000,
+    //         storageOptions: {
+    //             skipBackup: true,
+    //             path: 'images'
+    //         }
+    //     };
+    //     ImagePicker.showImagePicker(options, response => {
+    //         if (response.didCancel) {
+    //             console.log('User cancelled image picker');
+    //         } else if (response.error) {
+    //             console.log('ImagePicker Error: ', response.error);
+    //         } else if (response.customButton) {
+    //             console.log('User tapped custom button: ', response.customButton);
+    //         } else {
+    //             const source = { uri: response.uri };
+    //             console.log(source);
+    //             setImage(source);
+    //         }
+    //     });
+    // }
+
+    const handleNav = () => {
+        props.navigation.navigate("Hut");
     }
 
     return (
@@ -39,8 +66,12 @@ export default function HomeScreen(props) {
                 autoCapitalize="none"
             />
 
-            <TouchableOpacity style={styles.img} onPress={uploadImage}>
+            <TouchableOpacity style={styles.img} >
                 <Image source={upload} style={styles.imageUpIcon} />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.btn} onPress={handleNav}>
+                <Text style={styles.bText}>Finish</Text>
             </TouchableOpacity>
 
         </View>
