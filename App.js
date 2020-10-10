@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { LoginScreen, HomeScreen, RegistrationScreen } from './src/screens'
 import { decode, encode } from 'base-64'
+import TimeLine from './src/screens/Timeline/Timeline';
 if (!global.btoa) { global.btoa = encode }
 if (!global.atob) { global.atob = decode }
 
@@ -46,9 +47,12 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator headerMode="none">
         {user ? (
-          <Stack.Screen name="Home">
-            {props => <HomeScreen {...props} extraData={user} />}
-          </Stack.Screen>
+          <>
+            <Stack.Screen name="Home">
+              {props => <HomeScreen {...props} extraData={user} />}
+            </Stack.Screen>
+            <Stack.Screen name="TimeLine" component={TimeLine}/>
+          </>
         ) : (
             <>
               <Stack.Screen name="Login" component={LoginScreen} />
