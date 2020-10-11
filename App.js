@@ -52,7 +52,7 @@ export default function App() {
       <Stack.Navigator headerMode="none">
         {user ? (
           <>
-            <Stack.Screen name="Add" component={HomeScreen} />
+            <Stack.Screen name="HomeScreen" component={HomeScreen} />
             <Stack.Screen name="TimeLine" component={TimeLine}/>
             <Stack.Screen name="Nav" component={Nav} />
             <Stack.Screen name="Settings" component={Settings} />
@@ -61,7 +61,6 @@ export default function App() {
             <>
               <Stack.Screen name="Login" component={LoginScreen} />
               <Stack.Screen name="Registration" component={RegistrationScreen} />
-              <Stack.Screen name="Settings" component={Settings} />
             </>
           )}
       </Stack.Navigator>

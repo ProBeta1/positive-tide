@@ -4,6 +4,7 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
+        paddingTop:80,
         backgroundColor:'#15202B',
     },
     title: {
@@ -77,11 +78,12 @@ export default StyleSheet.create({
     },
     btns:{
         flexDirection:'row',
-        margin:20,
+        margin:10,
         padding:20,
         justifyContent:'space-between',
         width:'100%',
-        height:200
+        height:200,
+        
     }
 
 })
