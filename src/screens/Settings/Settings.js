@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View, Image } from 'react-native'
 import styles from './styles';
 import { firebase } from '../../firebase/config'
+import user from '../../pics/user.png';
+import help from '../../pics/help.png';
+import lock from '../../pics/lock.png';
+import badge from '../../pics/badge.png';
+import mail from '../../pics/mail.png';
+import logout from '../../pics/logout.png';
 
 const Settings = () => {
 
@@ -12,26 +18,26 @@ const Settings = () => {
             content: 'Acount details and profile'
         },
         {
-            img: user,
+            img: lock,
             title: 'Security',
             content: 'Security options & controls'
         },
         {
-            img: user,
+            img: badge,
             title: 'Privacy',
             content: 'Information collected & usage'
         },
         {
-            img: user,
+            img: mail,
             title: 'Communication',
             content: 'Emails, invites and notifications'
         },
         {
-            img: user,
+            img: help,
             title: 'Help & Support',
             content: 'FAQ & help desk'
         }, {
-            img: user,
+            img: logout,
             title: 'Log out',
             content: 'Log out of your account'
         },

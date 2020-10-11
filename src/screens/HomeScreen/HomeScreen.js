@@ -31,10 +31,18 @@ export default function HomeScreen(props) {
       }
 
     const uploadIt = () => {
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = today.getMonth()
+        let time = monthNames[mm] + ' ' + dd; 
         firebase.firestore().collection(id).add({
+            time,
             title,
-            des,
-            image:selectedImage
+            description:des,
+            imageUrl:selectedImage
         })
          .then(() => {
              setSelectedImage(null);
@@ -45,13 +53,15 @@ export default function HomeScreen(props) {
 
     const handleNav = () => {
         // store on firestore
-        uploadIt();      
+        if(title!=="")
+            uploadIt();      
         // navigate , we are done with todays work   
         props.navigation.navigate("Hut");
     }
     const handlePlus = () => {
         // store on firestore
-        uploadIt();         
+        if(title!=="")
+            uploadIt();         
     }
 
     return (

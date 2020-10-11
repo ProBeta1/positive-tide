@@ -51,9 +51,7 @@ export default function App() {
       <Stack.Navigator headerMode="none">
         {user ? (
           <>
-            <Stack.Screen name="Home">
-              {props => <HomeScreen {...props} extraData={user} />}
-            </Stack.Screen>
+            <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="TimeLine" component={TimeLine}/>
           <Stack.Screen name="Hut" component={Nav} />
           </>
