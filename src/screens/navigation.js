@@ -34,7 +34,7 @@ function MyTabs() {
         options={{
           tabBarLabel: 'Timeline',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="playlist-check" color={color} size={26} />
+            <MaterialCommunityIcons name="timeline-plus" color={color} size={26} />
           ),
         }}
       />

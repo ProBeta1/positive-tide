@@ -5,6 +5,8 @@ import { firebase } from '../../firebase/config'
 import upload from "../../pics/upload.png";
 import plus from "../../pics/plus.png"
 import * as ImagePicker from 'expo-image-picker';
+import { KeyboardAvoidingView } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function HomeScreen(props) {
 
@@ -64,15 +66,22 @@ export default function HomeScreen(props) {
             uploadIt();         
     }
 
+    const handleDel = () => {
+        setSelectedImage(null);
+             setTitle("");
+             setDes("");
+        props.navigation.navigate("Hut");
+    }
+
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView       behavior={Platform.OS == "ios" ? "padding" : null}
+        style={styles.container}>
             <Text style={styles.title}>Write down about something good that happened today</Text>
 
-            <Text style={styles.subt}>It can be anything - someone helped, nice weather, promotion...</Text>
-
+            <Text style={styles.subt}>It can be anything : any luck with that piece of code ? Maybe your favorite band released new songs.. </Text>
             <TextInput
                 style={styles.inputT}
-                placeholder='Title'
+                placeholder='What could be the best caption ..'
                 placeholderTextColor="#aaaaaa"
                 onChangeText={(text) => setTitle(text)}
                 value={title}
@@ -82,7 +91,7 @@ export default function HomeScreen(props) {
 
             <TextInput
                 style={styles.inputD}
-                placeholder='Description'
+                placeholder='What made this moment so special ??'
                 placeholderTextColor="#aaaaaa"
                 onChangeText={(text) => setDes(text)}
                 value={des}
@@ -91,7 +100,7 @@ export default function HomeScreen(props) {
             />
 
             <TouchableOpacity style={styles.img} onPress={openImagePickerAsync} >
-                <Image source={upload} style={styles.imageUpIcon} />
+                <MaterialCommunityIcons name="camera-plus" size={50} color="white" />
             </TouchableOpacity>
             {
                 selectedImage!==null?<Image
@@ -99,21 +108,25 @@ export default function HomeScreen(props) {
                 style={styles.thumbnail}
               /> : <></>
             }
+
             
-            {
-                title===""?
-                <></>:
+            <View style={styles.btns}>
+                <TouchableOpacity onPress={handleDel} >
+                    <MaterialCommunityIcons name="trash-can" size={40} color="white" />
+                </TouchableOpacity> 
+
                 <TouchableOpacity onPress={handlePlus} >
-                    <Image source={plus} style={styles.thumbnail} />
+                    <MaterialCommunityIcons name="pen-plus" size={40} color="white" />
+                </TouchableOpacity>            
+
+                <TouchableOpacity onPress={handleNav}>
+                    <MaterialCommunityIcons name="check-all" size={40} color="white" />
                 </TouchableOpacity>
-            }
-            
+            </View>
+                
 
-            <TouchableOpacity style={styles.btn} onPress={handleNav}>
-                <Text style={styles.bText}>Finish</Text>
-            </TouchableOpacity>
-
-        </View>
+        </KeyboardAvoidingView>
+        
     )
 }
 

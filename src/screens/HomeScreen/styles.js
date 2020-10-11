@@ -5,40 +5,43 @@ export default StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 25,
-        backgroundColor: 'white'
+        padding: 20,
+        backgroundColor:'#15202B',
     },
     title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        textAlign: 'center'
+        fontSize: 18,
+        textAlign: 'center',
+        color:'white',
+        fontWeight:'bold'
     },
     subt: {
-        fontSize: 18,
+        fontSize: 16,
         color: '#8E8E8E',
         textAlign: 'center',
-        marginTop: 10,
-        marginBottom: 20
+        marginTop: 20,
+        marginBottom: 20,
+        fontWeight:'bold'
     },
     inputT: {
         height: 35,
         borderRadius: 10,
         width: '90%',
-        backgroundColor: '#E2E2E2',
+        backgroundColor: '#1F4150',
         padding: 5,
-        textAlign: 'center'
-
+        textAlign: 'center',
+        color:'white'
     },
     inputD: {
         height: '30%',
         width: '90%',
         borderRadius: 10,
         overflow: 'hidden',
-        backgroundColor: '#E2E2E2',
+        backgroundColor: '#1F4150',
         marginTop: 20,
-        marginBottom: 10,
+        marginBottom: 20,
         padding: 5,
-        textAlign: 'center'
+        textAlign: 'center',
+        color:'white'
     },
     img: {
     },
@@ -63,5 +66,19 @@ export default StyleSheet.create({
         width: 100,
         height: 100,
         resizeMode: "cover"
-      }
+    },
+    plus:{
+        height:50,
+        width:50,
+        resizeMode:'cover',
+        margin:20
+    },
+    btns:{
+        flexDirection:'row',
+        margin:20,
+        padding:20,
+        justifyContent:'space-between',
+        width:'100%'
+    }
+
 })
