@@ -13,9 +13,10 @@ function MyTabs() {
   return (
     <Tab.Navigator
       initialRouteName="Hut"
-      activeColor="#e91e63"
+      activeColor="#009DE0"
+      inactiveColor="white"
       labelStyle={{ fontSize: 12 }}
-      style={{ backgroundColor: 'violet' }}
+      barStyle={{ backgroundColor: '#153745' }}
     >
       <Tab.Screen
         name="Hut"
@@ -33,7 +34,7 @@ function MyTabs() {
         options={{
           tabBarLabel: 'Timeline',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
+            <MaterialCommunityIcons name="playlist-check" color={color} size={26} />
           ),
         }}
       />

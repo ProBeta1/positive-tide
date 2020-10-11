@@ -7,9 +7,13 @@ const Hut = () => {
     const [title, setTitle] = useState("");
     const [des, setDes] = useState("");
     const [img, setImg] = useState(null);
+    const [time, setTime] = useState("");
     const [list, setList] = useState([]);
+    const [searchText, setSearchText] = useState("");
     const id = firebase.auth().currentUser.uid;
+    let user = firebase.auth().currentUser;
 
+    
     const retrieve = async() => {
         await firebase.firestore().collection(id).get()
             .then((snap) => {
@@ -23,6 +27,7 @@ const Hut = () => {
         setTitle(list[ix].title);
         setDes(list[ix].description);
         setImg(list[ix].imageUrl.localUri)
+        setTime(list[ix].time);
     }
 
     useEffect(() => {
@@ -30,11 +35,23 @@ const Hut = () => {
     },[])
     return(
         <View style={styles.container}>
-            <Text style={styles.boldT}>You have written down the good things today:)</Text>
-            <View style={styles.sr}>
-                <Text style={styles.text}>Search memories ..</Text>
+            <View style={styles.backg}>
+               <Text style={styles.boldT}>You have written down the good things today:)</Text>
             </View>
-            <Text style={styles.boldT}>{title}</Text>
+            <View style={styles.sr}>
+                <TextInput
+                    style={styles.ttext}
+                    placeholder='Search memories ..'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(text) => setSearchText(text)}
+                    value={searchText}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+            </View>
+            <Text style={styles.mem}>We do not remember days , we remember moments ...</Text>
+            <Text style={styles.time}>Remember {time} ??</Text>
+            <Text style={styles.boldT}>" {title} "</Text>
             { img!==null?<Image source={{ uri: img }} style={styles.img} /> : <></>}
             <Text style={styles.text}>{des}</Text>
         </View>

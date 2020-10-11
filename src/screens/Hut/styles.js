@@ -7,6 +7,12 @@ export default StyleSheet.create({
         justifyContent:'center',
         alignItems:'center'
     },
+    backg:{
+        backgroundColor:'#495B63',
+        borderRadius:20,
+        margin:5,
+        padding:20
+    },
     boldT:{
         fontSize:20,
         color:'white',
@@ -16,16 +22,40 @@ export default StyleSheet.create({
     img:{
         width:200,
         height:200,
-        resizeMode:'cover'
+        resizeMode:'cover',
+        margin:20
     },
     sr:{
         backgroundColor:'#1F4150',
-        borderRadius:9
+        borderRadius:20,
+        marginTop:20
+    },
+    ttext:{
+        textAlign:'center',
+        fontSize:16,
+        color:'white',
+        paddingLeft:40,
+        paddingRight:40,
+        paddingTop:5,
+        paddingBottom:5
     },
     text:{
         textAlign:'center',
-        fontSize:20,
+        fontSize:16,
         color:'white',
-        padding:10
+        height:'20%',
+    },
+    mem:{
+        fontStyle:'italic',
+        fontSize:16,
+        color:'white',
+        marginTop:30,
+        textAlign:'center'
+    },
+    time:{
+        fontSize:17,
+        color:'#1DA1F2',
+        fontWeight:'bold',
+        margin:10
     }
 })

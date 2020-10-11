@@ -4,6 +4,7 @@ export default StyleSheet.create({
     container:{
         flex: 1,
         padding: 20,
+        backgroundColor:'#15202B',
     },
     list: {
         marginTop:10,
@@ -11,11 +12,15 @@ export default StyleSheet.create({
       },
       title:{
         fontSize:16,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color:'white'
       },
       descriptionContainer:{
         flexDirection: 'row',
         paddingRight: 50,
+        backgroundColor:'#495B63',
+        borderRadius:10,
+        padding:20
       },
       image:{
         width: 50,
@@ -24,6 +29,6 @@ export default StyleSheet.create({
       },
       textDescription: {
         marginLeft: 10,
-        color: 'gray'
+        color: 'white'
       }
 })
