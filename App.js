@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { LoginScreen, HomeScreen, RegistrationScreen } from './src/screens'
 import { decode, encode } from 'base-64'
 import TimeLine from './src/screens/Timeline/Timeline';
+import Settings from "./src/screens/Settings/Settings";
 import Hut from './src/screens/Hut/Hut';
 import Nav from './src/screens/navigation';
 if (!global.btoa) { global.btoa = encode }
@@ -51,14 +52,16 @@ export default function App() {
       <Stack.Navigator headerMode="none">
         {user ? (
           <>
-            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Add" component={HomeScreen} />
             <Stack.Screen name="TimeLine" component={TimeLine}/>
-          <Stack.Screen name="Hut" component={Nav} />
+            <Stack.Screen name="Nav" component={Nav} />
+            <Stack.Screen name="Settings" component={Settings} />
           </>
         ) : (
             <>
               <Stack.Screen name="Login" component={LoginScreen} />
               <Stack.Screen name="Registration" component={RegistrationScreen} />
+              <Stack.Screen name="Settings" component={Settings} />
             </>
           )}
       </Stack.Navigator>

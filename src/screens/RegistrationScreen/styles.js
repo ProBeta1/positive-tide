@@ -7,7 +7,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         marginTop: 50,
         padding: 20,
-        backgroundColor: 'white'
+        backgroundColor: '#15202B'
     },
     btns: {
         flex: 1,
@@ -16,7 +16,7 @@ export default StyleSheet.create({
         margin: 10
     },
     lbutton: {
-        backgroundColor: '#B0E0E6',
+        backgroundColor: '#002D62',
         marginLeft: 15,
         marginTop: 20,
         height: 42,
@@ -26,7 +26,7 @@ export default StyleSheet.create({
     },
 
     rbutton: {
-        backgroundColor: '#00ABE3',
+        backgroundColor: '#007FFF',
         marginRight: 15,
         marginTop: 20,
         height: 42,
@@ -54,7 +54,7 @@ export default StyleSheet.create({
         paddingLeft: 16
     },
     button: {
-        backgroundColor: '#00ABE3',
+        backgroundColor: '#007FFF',
         marginLeft: 40,
         marginRight: 40,
         marginTop: 20,

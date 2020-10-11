@@ -5,7 +5,7 @@ import { firebase } from '../../firebase/config'
 import upload from "../../pics/upload.png";
 import plus from "../../pics/plus.png"
 import * as ImagePicker from 'expo-image-picker';
-import { KeyboardAvoidingView } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function HomeScreen(props) {
@@ -58,7 +58,7 @@ export default function HomeScreen(props) {
         if(title!=="")
             uploadIt();      
         // navigate , we are done with todays work   
-        props.navigation.navigate("Hut");
+        props.navigation.navigate("Nav");
     }
     const handlePlus = () => {
         // store on firestore
@@ -70,12 +70,14 @@ export default function HomeScreen(props) {
         setSelectedImage(null);
              setTitle("");
              setDes("");
-        props.navigation.navigate("Hut");
+        props.navigation.navigate("Nav");
     }
 
     return (
-        <KeyboardAvoidingView       behavior={Platform.OS == "ios" ? "padding" : null}
-        style={styles.container}>
+            <KeyboardAwareScrollView
+               style={styles.container}
+            >
+
             <Text style={styles.title}>Write down about something good that happened today</Text>
 
             <Text style={styles.subt}>It can be anything : any luck with that piece of code ? Maybe your favorite band released new songs.. </Text>
@@ -125,7 +127,7 @@ export default function HomeScreen(props) {
             </View>
                 
 
-        </KeyboardAvoidingView>
+        </KeyboardAwareScrollView>
         
     )
 }

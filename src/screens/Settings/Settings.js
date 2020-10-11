@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View, Image } from 'react-native'
 import styles from './styles';
 import { firebase } from '../../firebase/config'
+import Item from "./Item";
 import user from '../../pics/user.png';
 import help from '../../pics/help.png';
 import lock from '../../pics/lock.png';
@@ -9,7 +10,7 @@ import badge from '../../pics/badge.png';
 import mail from '../../pics/mail.png';
 import logout from '../../pics/logout.png';
 
-const Settings = () => {
+const Settings = (props) => {
 
     const DATA = [
         {
@@ -46,7 +47,7 @@ const Settings = () => {
 
 
     const renderItem = ({ item }) => (
-        <Item img={item.img} title={item.title} content={item.content} />
+        <Item img={item.img} title={item.title} content={item.content} navigation={props.navigation}/>
     );
 
     return (

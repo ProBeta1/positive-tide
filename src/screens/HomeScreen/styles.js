@@ -3,8 +3,6 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
         padding: 20,
         backgroundColor:'#15202B',
     },
@@ -29,7 +27,8 @@ export default StyleSheet.create({
         backgroundColor: '#1F4150',
         padding: 5,
         textAlign: 'center',
-        color:'white'
+        color:'white',
+        alignSelf:'center'
     },
     inputD: {
         height: '30%',
@@ -41,9 +40,11 @@ export default StyleSheet.create({
         marginBottom: 20,
         padding: 5,
         textAlign: 'center',
-        color:'white'
+        color:'white',
+        alignSelf:'center'
     },
     img: {
+        alignSelf:'center'
     },
     imageUpIcon: {
         width: 100,
@@ -65,7 +66,8 @@ export default StyleSheet.create({
     thumbnail: {
         width: 100,
         height: 100,
-        resizeMode: "cover"
+        resizeMode: "cover",
+        alignSelf:'center'
     },
     plus:{
         height:50,
@@ -78,7 +80,8 @@ export default StyleSheet.create({
         margin:20,
         padding:20,
         justifyContent:'space-between',
-        width:'100%'
+        width:'100%',
+        height:200
     }
 
 })

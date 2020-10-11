@@ -28,7 +28,7 @@ export default function LoginScreen({ navigation }) {
                             return;
                         }
                         const user = firestoreDocument.data()
-                        navigation.navigate('Home')
+                        navigation.navigate('Add')
                     })
                     .catch(error => {
                         alert(error)
